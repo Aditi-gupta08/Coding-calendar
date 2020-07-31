@@ -1,26 +1,26 @@
-const axios = require('axios');
+// Using request module
+
 const {to} = require('await-to-js');
 const yargs = require('yargs');
+const request = require('request');
 
-async function func1()
-{   let data = [];
+const Contests_url = 'https://clist.by/get/events/';
 
-    let [err, res] = await to(axios.get('https://clist.by/get/events/'));
-
-    if(err)
-    {
-        console.log("Error: ", err);
-    }
-    
-    return res.data;
-}
 
 
 async function main()
-{
-    let Contests = await to(func1());
-    let allContests = Contests[1];
+{   
+    let allContests;
 
+    await request( {uri:Contests_url, json: true} , (error, response, body) => {
+        if (error) {
+            console.log("Error", error);
+            return;
+        } 
+        
+    allContests = body;
+
+    
     let cur = new Date();
     let past_contests = [], cur_contests = [], upc_contests = [];
 
@@ -88,6 +88,10 @@ async function main()
 
     yargs.argv;
     console.log("\n");
+   
+
+    
+    })
 }
 
 main();

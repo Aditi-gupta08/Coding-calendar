@@ -1,5 +1,5 @@
 {
-  "name": "Coding-calendar",
+  "name": "Coding_Calendar",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,7 +13,7 @@
     "await-to-js": "^2.1.1",
     "axios": "^0.19.2",
     "http": "0.0.1-security",
-    "request": "^2.88.2",
+    "https": "^1.0.0",
     "yargs": "^15.4.1"
   }
 }
